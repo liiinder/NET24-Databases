@@ -1,7 +1,7 @@
 # Övningsuppgifter med CRUD-operationer i SQL
 
 
-Börja med att ladda ner [everyloop.bak]()  och gör en "Restore".
+Börja med att ladda ner [everyloop.bak](https://github.com/everyloop/NET24-Databases/tree/master/Resources/everyloop.bak)  och gör en "Restore".
 
 För de övningsuppgifter som kräver att ni ändrar i en tabell (insert, update,
 delete) se först till att kopiera orginaltabellen i everyloop till en ny tabell, som ni sedan kan modifiera. På så vis har ni alltid orginalet kvar oförändrat.
