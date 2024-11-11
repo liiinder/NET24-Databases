@@ -45,7 +45,22 @@ select * from Users where len(FirstName) = 5 order by FirstName;
 select top 5 * from users order by LastName desc, FirstName asc
 
 
+select distinct Region from Countries
 
 
+select country from Countries where Country like 'a%'
+union all
+select firstname from Users where firstname like 'a%'
 
+
+select
+	FirstName,
+	--len(firstname) as 'length of firstname',
+	case
+		when len(firstname) < 4 then 'Kort'
+		when len(firstname) < 8 then 'Mellan'
+		else 'Lång'
+	end as 'Längd på namn'
+from 
+	users
 
