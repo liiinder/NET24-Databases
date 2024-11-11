@@ -8,6 +8,6 @@ Här hittar du code-along projekt från lektioner, lektionsanteckningar, samt [�
 
 | Datum           | Översikt                                                       |
 |-----------------|----------------------------------------------------------------|
-| [Nov 11][Nov11] | Visual Studio, Powershell, Git/Github.                         |
+| [Nov 11][Nov11] | SQL Server & Management Studio, SQL intro, CRUD, DDL           |
 
-[Nov11]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Aug26.md
+[Nov11]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov11.md
