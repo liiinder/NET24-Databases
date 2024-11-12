@@ -9,5 +9,7 @@ Här hittar du code-along projekt från lektioner, lektionsanteckningar, samt [�
 | Datum           | Översikt                                                       |
 |-----------------|----------------------------------------------------------------|
 | [Nov 11][Nov11] | SQL Server & Management Studio, SQL intro, CRUD, DDL           |
+| [Nov 13][Nov13] | Aggregering, Gruppering, Datatyper, Variabler                  |
 
 [Nov11]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov11.md
+[Nov13]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov13.md
