@@ -27,4 +27,40 @@ where
 	Number <= 5
 
 
+select * from Elements
+
+select
+	Period,
+	StableIsotopes,
+	count(*) as 'Row count'
+--	count(Stableisotopes),
+--	min(Stableisotopes),
+--	max(Stableisotopes)
+
+from 
+	Elements 
+group by
+	Period, Stableisotopes
+order by Period, Stableisotopes
+
+select * from dbo.Elements
+
+select id, OrderDate, ShipRegion, ShipCountry, ShipCity from company.orders order by ShipRegion, ShipCountry, ShipCity
+
+select 
+	ShipRegion,
+	ShipCountry,
+	ShipCity,
+	count(*) as 'Number of orders'
+from 
+	company.orders
+group by
+	ShipRegion, ShipCountry, ShipCity
+order by
+	ShipRegion, ShipCountry, ShipCity
+
+
+
+
+
 
