@@ -17,7 +17,7 @@ För varje stad som har 2 eller fler kunder i tabellen Customers, ta ut
 ”Customers” som anger hur många kunder som finns i staden.
 
 ## 3. Game of thrones aggregerad till en sträng
-Skapa en varchar-variabel och skriv en select-sats som sätter värdet:
+Skapa en nvarchar-variabel och skriv en select-sats som sätter värdet:
 ”Säsong 1 sändes från april till juni 2011. Totalt
 sändes 10 avsnitt, som i genomsnitt sågs av 2.5
 miljoner människor i USA.”, följt av radbyte/char(13), följt av
@@ -28,7 +28,7 @@ GameOfThrones.
 
 ***Tips:*** *Ange ’sv’ som tredje parameter i format() för svenska månader.*
 
-***Tips:*** *Kolla slide om variabler hur man kan sätta variabel med += för konkatenering*
+***Tips:*** *Kolla slide om variabler hur man kan sätta variabel med += för konkatenering.*
 
 ## 4. Namn, ålder, kön
 Ta ut (select) alla användare i tabellen ”Users” så du får tre kolumner:
