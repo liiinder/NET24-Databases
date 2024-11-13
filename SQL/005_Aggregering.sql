@@ -60,6 +60,21 @@ order by
 	ShipRegion, ShipCountry, ShipCity
 
 
+select 
+	ShipRegion,
+	count(*) as 'Number of orders'
+from 
+	company.orders
+where 
+	OrderDate < '2013-01-01 00:00'
+group by
+	ShipRegion
+having
+	count(*) < 10
+order by
+	count(*) desc
+
+
 
 
 
