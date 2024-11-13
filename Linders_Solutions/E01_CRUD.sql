@@ -93,12 +93,18 @@ DROP TABLE ColorsCopy
 
 --*/----------------------------------------------------------------------
 
+SELECT * FROM Types
+
 SELECT Integer, String into #TypesCopy FROM Types
 
 SELECT
     Integer,
     CAST(Integer as float) / 100 as 'Float',
-    String
+    String,
+    '2019-01-' + FORMAT(Integer, '00') +
+    ' 09:' + FORMAT(Integer, '00') +
+    ':00.0000000' as 'DateTime',
+    Integer % 2 as 'Bool'
 FROM #TypesCopy
 
 DROP TABLE #TypesCopy
