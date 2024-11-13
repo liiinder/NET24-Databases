@@ -36,7 +36,7 @@ GROUP BY
 
 --/* Example: ORDER BY 
 
---SELECT 
+--SELECT
 --    ShipRegion,
 --    ShipCountry,
 --    ShipCity,
@@ -53,7 +53,7 @@ GROUP BY
 
 /* Example: HAVING
 
-SELECT 
+SELECT
     ShipRegion,
     Count(*) as 'Number of Orders'
 FROM company.orders

@@ -9,10 +9,10 @@
 
 --select
 --    -- Projection:
---    id, 
---    name, 
---    10 + id as 'id+10', 
---    'hej ' + name as 'Greeting' 
+--    id,
+--    name,
+--    10 + id as 'id+10',
+--    'hej ' + name as 'Greeting'
 --from
 --    students
 --where
@@ -51,8 +51,8 @@ use everyloop;
 
 --select * from dbo.Airports;
 
---select * from Users w5here len(FirstName) = 5 order by FirstName desc; --asc �r default
---select * from Users where len(FirstName) = 5 order by LastName, FirstName desc; --asc �r default
+--select * from Users w5here len(FirstName) = 5 order by FirstName desc; --asc är default
+--select * from Users where len(FirstName) = 5 order by LastName, FirstName desc; --asc är default
 
 --select distinct Region from Countries;
 

@@ -1,10 +1,10 @@
 
 /* Uppgift 1
 
--- Format �r bara m�jligt i T-SQL.
+-- Format är bara möjligt i T-SQL.
 SELECT
     Title,
-    'S' + right('00' + cast(Season as nvarchar), 2) + 
+    'S' + right('00' + cast(Season as nvarchar), 2) +
     'E' + right('00' + cast(EpisodeInSeason as nvarchar), 2) as Episode,
     'S' + Format(Season, '00') + 'E' + Format(EpisodeInSeason, '00') as Episode2
 FROM GameOfThrones;
@@ -101,9 +101,8 @@ SELECT
     Integer,
     CAST(Integer as float) / 100 as 'Float',
     String,
-    '2019-01-' + FORMAT(Integer, '00') +
-    ' 09:' + FORMAT(Integer, '00') +
-    ':00.0000000' as 'DateTime',
+    CAST('2019-01-' + FORMAT(Integer, '00') +
+    ' 09:' + FORMAT(Integer, '00') as datetime2) as 'DateTime',
     Integer % 2 as 'Bool'
 FROM #TypesCopy
 
