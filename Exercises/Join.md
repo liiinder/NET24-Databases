@@ -23,7 +23,7 @@ Med tabellerna från schema “company”, svara på följande frågor:
 ## B - Playlist
 Använd dig av tabellerna från schema “music”, och utgå från:
 ```sql 
-declare @playlist varchar(max) = 'Heavy Metal Classic’;
+declare @playlist varchar(max) = 'Heavy Metal Classic';
 ```
 Skriv sedan en select-sats som tar ut alla låtar från den lista som
 angivits i @playlist efter följande exempel: 
