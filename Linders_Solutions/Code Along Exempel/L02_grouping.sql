@@ -1,4 +1,4 @@
-/* Examples ... (Count räknar inte null)
+--/* Examples ... (Count räknar inte null)
 
 SELECT 
     COUNT(*) as 'Number of rows',
@@ -17,7 +17,7 @@ select * from Elements
 
 --*/----------------------------------------------------------------------------------------------------
 
-/* Example 2... Group By
+--/* Example 2... Group By
 
 SELECT * FROM Elements
 
@@ -36,22 +36,22 @@ GROUP BY
 
 --/* Example: ORDER BY 
 
---SELECT
---    ShipRegion,
---    ShipCountry,
---    ShipCity,
---    Count(*) as 'Number of Orders'
---FROM company.orders
---GROUP BY
---    ShipRegion,
---    ShipCountry,
---    ShipCity
---ORDER BY
---    'Number of Orders' desc
+SELECT
+   ShipRegion,
+   ShipCountry,
+   ShipCity,
+   Count(*) as 'Number of Orders'
+FROM company.orders
+GROUP BY
+   ShipRegion,
+   ShipCountry,
+   ShipCity
+ORDER BY
+   'Number of Orders' desc
 
 --*/---------------------------------------------------------------------------------------------------
 
-/* Example: HAVING
+--/* Example: HAVING
 
 SELECT
     ShipRegion,
@@ -66,7 +66,7 @@ ORDER BY
 
 --*/---------------------------------------------------------------------------------------------------
 
-/* Example: Primary Key
+--/* Example: Primary Key
 
 CREATE TABLE products
 (
