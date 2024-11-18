@@ -1,6 +1,6 @@
 USE everyloop
 
---Med tabellerna från schema "company", svara på följande frågor:
+-- Med tabellerna från schema "company", svara på följande frågor:
 
 
 
@@ -41,7 +41,7 @@ FROM company.products p
 
 
 
---Till vilken stad har vi levererat flest unika produkter?
+-- Till vilken stad har vi levererat flest unika produkter?
 
 SET ROWCOUNT 1
 SELECT ShipCity AS 'Stad',
@@ -57,7 +57,7 @@ SET ROWCOUNT 0
 
 
 
---Av de produkter som inte längre finns I vårat sortiment, hur mycket har vi sålt för totalt till Tyskland?
+-- Av de produkter som inte längre finns I vårat sortiment, hur mycket har vi sålt för totalt till Tyskland?
 SELECT
     ShipCountry AS 'Country',
     SUM(od.UnitPrice) * SUM(Quantity) AS 'Totally billed'
@@ -76,7 +76,7 @@ ORDER BY 'Totally billed' DESC
 
 
 
---För vilken produktkategori har vi högst lagervärde?
+-- För vilken produktkategori har vi högst lagervärde?
 
 SELECT
     CategoryName,
@@ -89,7 +89,7 @@ GROUP BY CategoryName
 
 
 
---Från vilken leverantör har vi sålt flest produkter totalt under sommaren 2013?
+-- Från vilken leverantör har vi sålt flest produkter totalt under sommaren 2013?
 
 SELECT
     CompanyName,

@@ -99,7 +99,7 @@ SELECT
         SUM(CAST([Area (sq# mi#)] AS FLOAT)),
         'f2') AS 'Befolkningstäthet',
 -- Förmodligen är nedanstående fel statistiskt. (pga flera avrundningar?)
-    FORMAT(SUM(CAST(REPLACE(ISNULL([Infant mortality (per 1000 births)], 0), ',', '.') AS FLOAT)) / COUNT(Country) / 10, 'f0') AS 'Spädbarnsdödlighet'
+    FORMAT(SUM(CAST(REPLACE([Infant mortality (per 1000 births)], ',', '.') AS FLOAT)) / COUNT([Infant mortality (per 1000 births)]) / 10, 'f0') AS 'Spädbarnsdödlighet'
 FROM Countries
 GROUP BY Region
 
@@ -111,7 +111,7 @@ SELECT * FROM Countries
 
 --/* Uppgift 6. Gruppera per land
 
-IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name like 'AirportsCopy')
+IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'AirportsCopy')
    DROP TABLE [dbo].AirportsCopy;
 GO
 

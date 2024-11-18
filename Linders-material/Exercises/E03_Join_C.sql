@@ -1,13 +1,13 @@
 USE everyloop
 
---  C - Music
---  Med tabellerna från schema “music”, svara på följande frågor:
+-- C - Music
+-- Med tabellerna från schema “music”, svara på följande frågor:
 
 
 
 
---  Av alla audiospår, vilken artist har längst total speltid?
---  Vad är den genomsnittliga speltiden på den artistens låtar?
+-- Av alla audiospår, vilken artist har längst total speltid?
+-- Vad är den genomsnittliga speltiden på den artistens låtar?
 
 SELECT TOP 1
     ar.Name,
@@ -55,7 +55,7 @@ OFFSET is an option for ORDER BY - https://www.sqlservertutorial.net/sql-server-
 
 
 
---  Vad är den sammanlagda filstorleken för all video?
+-- Vad är den sammanlagda filstorleken för all video?
 
 SELECT
     mt.Name as 'Mediatyp',
@@ -67,13 +67,13 @@ WHERE
     mt.Name LIKE '%video%'
 GROUP BY mt.Name
 
---	Kunde skippat join och bara köra rakt på tracks.MediaTypeId
---	men det är ju en uppgift om Join så tog och sökte efter 'Video' i Namnet också...
+-- Kunde skippat join och bara köra rakt på tracks.MediaTypeId
+-- men det är ju en uppgift om Join så tog och sökte efter 'Video' i Namnet också...
 
 
 
 
---Vilket är det högsta antal artister som finns på en enskild spellista?
+-- Vilket är det högsta antal artister som finns på en enskild spellista?
 
 SELECT
     pt.PlaylistId AS 'ID',
@@ -92,7 +92,7 @@ ORDER BY 'Unika artister' DESC
 
 
 
---Vilket är det genomsnittliga antalet artister per spellista?
+-- Vilket är det genomsnittliga antalet artister per spellista?
 
 DECLARE @sumOfUniqueArtists FLOAT = 0
 DECLARE @sumOfPlaylists FLOAT = 0

@@ -1,44 +1,53 @@
+USE everyloop
+
+
 
 --/* Uppgift 1
 
 -- Format är bara möjligt i T-SQL.
 SELECT
     Title,
-    'S' + right('00' + cast(Season as nvarchar), 2) +
-    'E' + right('00' + cast(EpisodeInSeason as nvarchar), 2) as Episode,
-    'S' + Format(Season, '00') + 'E' + Format(EpisodeInSeason, '00') as Episode2
+    'S' + right('00' + cast(Season AS NVARCHAR), 2) +
+    'E' + right('00' + cast(EpisodeInSeason AS NVARCHAR), 2) AS Episode,
+    'S' + Format(Season, '00') + 'E' + Format(EpisodeInSeason, '00') AS Episode2
 FROM GameOfThrones;
 
 --*/------------------------------------------------------------------------------
 
+
+
 --/* Uppgift 2
 
-Select * INTO UsersCopy FROM Users;
-Select * From UsersCopy;
+SELECT * INTO UsersCopy FROM Users;
+SELECT * FROM UsersCopy;
 
 UPDATE UsersCopy
 SET UserName = LOWER(LEFT(FirstName, 2) + LEFT(LastName, 2));
 
-Select * From UsersCopy;
+SELECT * FROM UsersCopy;
 DROP TABLE UsersCopy;
 
 --*/------------------------------------------------------------------------------
+
+
 
 --/* Uppgift 3
 
 SELECT * INTO AirportsCopy FROM Airports
 
 UPDATE AirportsCopy
-SET Time = '-' WHERE Time is null 
+SET Time = '-' WHERE Time IS NULL 
 
 UPDATE AirportsCopy
-SET DST = '-' WHERE DST is null
+SET DST = '-' WHERE DST IS NULL
 
-SELECT COUNT(Time) AS 'Count null in Time' FROM AirportsCopy WHERE Time is null
+SELECT COUNT(Time) AS 'Count null in Time' FROM AirportsCopy WHERE Time IS NULL
 
 DROP TABLE AirportsCopy
 
 --*/------------------------------------------------------------------------
+
+
 
 --/* Uppgift 4
 
@@ -59,6 +68,8 @@ DROP TABLE ElementsCopy
 
 --*/----------------------------------------------------------------------
 
+
+
 --/* Uppgift 5
 
 SELECT
@@ -67,7 +78,7 @@ SELECT
     CASE
         WHEN LEFT(Name, 2) LIKE LEFT(Symbol, 2) THEN 'yes'
         ELSE 'no'
-    END as 'Yes/No'
+    END AS 'Yes/No'
 INTO ElementsCopy FROM Elements
 
 SELECT * FROM ElementsCopy ORDER BY NAME
@@ -86,7 +97,7 @@ SELECT
     UPPER(FORMAT(Red, 'x2') +
           FORMAT(Green, 'x2') +
           FORMAT(Blue, 'x2'))
-        as 'MyCode'
+        AS 'MyCode'
 FROM ColorsCopy
 
 DROP TABLE ColorsCopy
@@ -95,15 +106,15 @@ DROP TABLE ColorsCopy
 
 SELECT * FROM Types
 
-SELECT Integer, String into #TypesCopy FROM Types
+SELECT Integer, String INTO #TypesCopy FROM Types
 
 SELECT
     Integer,
-    CAST(Integer as float) / 100 as 'Float',
+    CAST(Integer AS FLOAT) / 100 AS 'Float',
     String,
     CAST('2019-01-' + FORMAT(Integer, '00') +
-    ' 09:' + FORMAT(Integer, '00') as datetime2) as 'DateTime',
-    Integer % 2 as 'Bool'
+    ' 09:' + FORMAT(Integer, '00') AS DATETIME2) AS 'DateTime',
+    Integer % 2 AS 'Bool'
 FROM #TypesCopy
 
 DROP TABLE #TypesCopy
