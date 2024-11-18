@@ -24,7 +24,7 @@ SELECT
     al.Title AS 'Album',
     t.Name AS 'Track',
     FORMAT(Milliseconds / 60000, '00') + ':' +
-    FORMAT(Milliseconds % 60000 / 1000, '00') AS 'Length',
+        FORMAT(Milliseconds % 60000 / 1000, '00') AS 'Length',
     CAST(FORMAT(CAST(Bytes AS FLOAT) / 1024 / 1024, 'f1') AS NVARCHAR(100)) + ' MiB' AS 'Size',
     ISNULL(Composer, '-') AS 'Composer'
 FROM

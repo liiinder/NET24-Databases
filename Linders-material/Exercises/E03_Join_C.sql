@@ -67,8 +67,8 @@ WHERE
     mt.Name LIKE '%video%'
 GROUP BY mt.Name
 
--- Kunde skippat join och bara köra rakt på tracks.MediaTypeId
--- men det är ju en uppgift om Join så tog och sökte efter 'Video' i Namnet också...
+-- Kunde skippat join och bara köra rakt på tracks.MediaTypeId = 3
+-- men det är ju en uppgift om Join så tog och joinade mot tabellen och sökte efter 'Video' i Namnet...
 
 
 

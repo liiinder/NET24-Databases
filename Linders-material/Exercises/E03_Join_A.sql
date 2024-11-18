@@ -12,31 +12,22 @@ USE everyloop
 DECLARE @amountOfProducts FLOAT
 DECLARE @shippedToLondon FLOAT
 
-SELECT @amountOfProducts = COUNT(Id) FROM company.products
+SELECT @amountOfProducts = count(Id) FROM company.products
 
 SELECT @shippedToLondon = COUNT(DISTINCT ProductID)
-FROM company.orders o
-    JOIN company.order_details od
-    ON o.Id = od.OrderId
+FROM company.orders o JOIN company.order_details od ON o.Id = od.OrderId
 WHERE o.ShipCity LIKE 'London'
 
-PRINT 'Andel unika produkter skickade till London: ' +
-    FORMAT(CAST(@shippedToLondon AS FLOAT) /
-    CAST(@amountOfProducts AS FLOAT), 'P1')
+PRINT 'Andel unika produkter skickade till London: ' + FORMAT(@shippedToLondon / @amountOfProducts, 'P1')
 
--- Samt en lösning utan DECLARE's/PRINT
-SELECT
-    FORMAT(
-        CAST(
-            (SELECT
-                Count(DISTINCT ProductId)
-            FROM company.orders o
-                JOIN company.order_details od 
-                ON o.Id = od.OrderId
-            WHERE o.ShipCity LIKE 'London') AS FLOAT) 
-        / COUNT(*), 'P2') +
-        ' %' AS 'Andel produkter skickade till London'
-FROM company.products p
+SELECT ShipCity AS 'Stad',
+    COUNT(DISTINCT ProductID) AS 'Unika produkter',
+    FORMAT(@shippedToLondon / @amountOfProducts, 'P1') AS 'Procent'
+FROM
+    company.orders o JOIN company.order_details od ON o.Id = od.OrderId
+GROUP BY ShipCity
+HAVING o.ShipCity LIKE 'London'
+ORDER BY 'Unika produkter' DESC
 
 
 
@@ -47,9 +38,7 @@ SET ROWCOUNT 1
 SELECT ShipCity AS 'Stad',
     COUNT(DISTINCT ProductID) AS 'Unika produkter'
 FROM
-    company.orders o
-    JOIN company.order_details od
-    ON o.Id = od.OrderId
+    company.orders o JOIN company.order_details od ON o.Id = od.OrderId
 GROUP BY ShipCity
 ORDER BY 'Unika produkter' DESC
 SET ROWCOUNT 0
