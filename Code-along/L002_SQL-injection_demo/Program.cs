@@ -32,7 +32,7 @@ using (var connection = new SqlConnection(connectionString))
 void SearchAirports(SqlConnection connection, string searchString)
 {
 
-    var query = $"""
+    var query = """
 select top 10 
     [IATA], 
     [Airport name], 
@@ -40,11 +40,12 @@ select top 10
 from 
     [Airports] 
 where 
-    [Location served] like '%{searchString}%';
+    [Location served] like concat('%', @searchText, '%');
 """;
 
     using (var command = new SqlCommand(query, connection))
     {
+        command.Parameters.AddWithValue("@searchText", searchString);
         try
         {
             using (SqlDataReader reader = command.ExecuteReader())
