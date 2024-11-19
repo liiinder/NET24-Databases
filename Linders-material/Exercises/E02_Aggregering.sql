@@ -149,7 +149,7 @@ SELECT
     Country AS 'Land',
     COUNT(IATA) AS 'Antal flygplatser',
     COUNT(IATA) - COUNT(ICAO) AS 'Antal som saknar ICAO',
-    FORMAT((CAST(COUNT(ICAO) AS FLOAT) / COUNT(IATA)), 'P1') AS 'Procent som saknar ICAO'
+    FORMAT(1-(CAST(COUNT(ICAO) AS FLOAT) / COUNT(IATA)), 'P1') AS 'Procent som saknar ICAO'
 FROM AirportsCopy
 GROUP BY Country
 ORDER BY 'Antal flygplatser' DESC
