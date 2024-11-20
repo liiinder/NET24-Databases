@@ -12,8 +12,10 @@ Här hittar du code-along projekt från lektioner, lektionsanteckningar, samt [�
 | [Nov 13][Nov13] | Aggregering, Gruppering, Datatyper, Variabler                  |
 | [Nov 14][Nov14] | Joins                                                          |
 | [Nov 18][Nov18] | ACID, Transaktioner, SqlClient, SQL-injection                  |
+| [Nov 20][Nov20] | Constraints, Normalisering                                     |
 
 [Nov11]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov11.md
 [Nov13]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov13.md
 [Nov14]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov14.md
 [Nov18]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov18.md
+[Nov20]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov20.md
