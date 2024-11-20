@@ -31,8 +31,33 @@ using (var connection = new SqlConnection(connectionString))
 
 void SearchAirports(SqlConnection connection, string searchString)
 {
+    // SQL-INJECTION!!!
+    //
+    // Följande kod konkatenerar användardata in i en interpolation string som sedan skickas till SQL-servern.
+    // Servern kan därmed inte göra skillnad på kod utvecklaren skivit och eventuell injicerad kod som användaren skivit.
+    //
+    // Ett exempel är om användaren t.ex skriver in följande kod som input:
+    // ' and 1 = 0 union select top 10 username, email, id from users; --
 
-    var query = """
+    var query = $"""
+select top 10 
+    [IATA], 
+    [Airport name], 
+    [Location served] 
+from 
+    [Airports] 
+where 
+    [Location served] like '%{searchString}%';
+""";
+
+    // PARAMETERIZED QUERY
+    //
+    // För att skydda sig mot SQL-injection får man ALDRIG konkaterna användardata och SQL-kod innan denna skickas till servern.
+    // Använd istället parameterized queries, som skickar användardata skilt från query, så servern vet vilket som är vilket.
+
+    // Query bör alltid vara en statisk sträng, t.ex:
+/*
+    var query = $"""
 select top 10 
     [IATA], 
     [Airport name], 
@@ -42,10 +67,13 @@ from
 where 
     [Location served] like concat('%', @searchText, '%');
 """;
+*/
 
     using (var command = new SqlCommand(query, connection))
     {
-        command.Parameters.AddWithValue("@searchText", searchString);
+        // Den statiska strängen ovan använder sig av en parameter @searchText, som vi kan definera som:
+        // command.Parameters.AddWithValue("@searchText", searchString);
+
         try
         {
             using (SqlDataReader reader = command.ExecuteReader())
