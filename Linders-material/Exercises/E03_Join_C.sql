@@ -1,5 +1,10 @@
 USE everyloop
 
+-- Uppgift från filen - Exercises\Join.md
+
+
+
+
 -- C - Music
 -- Med tabellerna från schema “music”, svara på följande frågor:
 
@@ -11,8 +16,8 @@ USE everyloop
 
 SELECT TOP 1
     ar.Name,
-    SUM(t.Milliseconds) as 'Total time in ms',
-    COUNT(*) 'tracks',
+    SUM(t.Milliseconds) AS 'Total time in ms',
+    COUNT(*) 'Tracks',
     FORMAT(SUM(t.Milliseconds) / COUNT(*) / 60000, '00') + ':' +
     FORMAT(SUM(t.Milliseconds) / COUNT(*) % 60000 / 1000, '00') AS 'Avg time per track'
 FROM music.tracks t
@@ -44,11 +49,11 @@ SET ROWCOUNT hardcaps the result that SSMS is getting and will affect all other 
 OFFSET is an option for ORDER BY - https://www.sqlservertutorial.net/sql-server-basics/sql-server-offset-fetch/
 --------------------------------------------------------------------------------------------------------------------------
     SELECT * FROM music.tracks ORDER BY TrackId
-    OFFSET 0 ROWS				-- OFFSET is mandatory
-    FETCH NEXT 1 ROW ONLY		-- FETCH is optional   [FIRST / NEXT] and [ROW / ROWS] doesn't matter which as they do the same
+    OFFSET 0 ROWS               -- OFFSET is mandatory
+    FETCH NEXT 1 ROW ONLY       -- FETCH is optional   [FIRST / NEXT] and [ROW / ROWS] doesn't matter which as they do the same
 
     SELECT * FROM music.tracks ORDER BY TrackId
-    OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY		-- To get row 11 to 20
+    OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY      -- To get row 11 to 20
 
 */
 
@@ -76,7 +81,7 @@ GROUP BY mt.Name
 -- Vilket är det högsta antal artister som finns på en enskild spellista?
 
 SELECT
-    pt.PlaylistId AS 'ID',
+    pt.PlaylistId AS 'Id',
     MIN(p.Name) AS 'Namn',
     COUNT(DISTINCT al.ArtistId) AS 'Unika artister'
 FROM music.playlist_track pt
@@ -109,4 +114,6 @@ FROM music.playlist_track pt
     ON pt.PlaylistId = p.PlaylistId
 GROUP BY p.PlaylistId
 
-PRINT CAST(@sumOfUniqueArtists / @sumOfPlaylists AS NVARCHAR(max)) + ' genomsnittliga antalet artister per spellista'
+PRINT 'Genomsnittliga antalet unika artister per spellista: ' + CAST(@sumOfUniqueArtists / @sumOfPlaylists AS NVARCHAR(max))
+
+SELECT CAST(@sumOfUniqueArtists / @sumOfPlaylists AS NVARCHAR(max)) AS 'Genomsnittliga antalet unika artister per spellista'

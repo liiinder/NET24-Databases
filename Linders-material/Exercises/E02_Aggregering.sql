@@ -1,8 +1,13 @@
 USE everyloop
 
-SET ANSI_WARNINGS OFF
+-- Uppgifter från filen - Exercises\Aggregering.md
 
+
+
+
+-------------------------------------------------------------------------------------------------
 --/* Uppgift 1. Elements
+-------------------------------------------------------------------------------------------------
 
 SELECT
     Period,
@@ -21,11 +26,12 @@ GROUP BY
 
 SELECT * FROM Elements
 
+
+
+
 --*/---------------------------------------------------------------------------------------------
-
-
-
 --/* Uppgift 2. Städer med minst två kunder
+-------------------------------------------------------------------------------------------------
 
 SELECT
     Region,
@@ -39,15 +45,14 @@ HAVING COUNT(Id) > 1
 ORDER BY
     'Customers' DESC
 
+
+
+
 --*/---------------------------------------------------------------------------------------------
-
-
-
 --/* Uppgift 3. Game of thrones aggregerad till en sträng
+-------------------------------------------------------------------------------------------------
 
 DECLARE @GameOfThrones nvarchar(max) = ''
-
- --SELECT * FROM GameOfThrones
 
 SELECT
     @GameOfThrones +=
@@ -62,11 +67,12 @@ GROUP BY Season
 
 PRINT @GameOfThrones
 
+
+
+
 --*/---------------------------------------------------------------------------------------------
-
-
-
 --/* Uppgift 4. Namn, ålder, kön
+-------------------------------------------------------------------------------------------------
 
 SELECT
     FirstName + ' ' + LastName AS 'Namn',
@@ -83,11 +89,14 @@ SELECT
 FROM Users
 ORDER BY FirstName, LastName
 
+
+
+
 --*/---------------------------------------------------------------------------------------------
-
-
-
 --/* Uppgift 5. Sammanställ data för olika regioner
+-------------------------------------------------------------------------------------------------
+
+SELECT * FROM Countries
 
 SELECT
     Region AS 'Namn',
@@ -98,18 +107,17 @@ SELECT
         SUM(CAST([Population] AS FLOAT)) /
         SUM(CAST([Area (sq# mi#)] AS FLOAT)),
         'f2') AS 'Befolkningstäthet',
--- Förmodligen är nedanstående fel statistiskt. (pga flera avrundningar?)
+-- Förmodligen är nedanstående fel statistiskt. (pga flera avrundningar då orginalvärdet bara har 2 decimaler)
     FORMAT(SUM(CAST(REPLACE([Infant mortality (per 1000 births)], ',', '.') AS FLOAT)) / COUNT([Infant mortality (per 1000 births)]) / 10, 'f0') AS 'Spädbarnsdödlighet'
 FROM Countries
 GROUP BY Region
 
-SELECT * FROM Countries
+
+
 
 --*/---------------------------------------------------------------------------------------------
-
-
-
 --/* Uppgift 6. Gruppera per land
+-------------------------------------------------------------------------------------------------
 
 IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'AirportsCopy')
    DROP TABLE [dbo].AirportsCopy;
@@ -117,7 +125,7 @@ GO
 
 SELECT * INTO AirportsCopy FROM Airports
 
-ALTER TABLE AirportsCopy ADD Country NVARCHAR(max)
+ALTER TABLE AirportsCopy ADD Country NVARCHAR(max) GO
 
 -- Set Country to [Location served] but deletes all numbers
 UPDATE AirportsCopy SET Country = REPLACE(TRANSLATE([Location served], '1234567890', '??????????'), '?', '')
@@ -145,6 +153,8 @@ END)
 UPDATE AirportsCopy SET Country = 'Australia' WHERE IATA = 'CKW'
 UPDATE AirportsCopy SET Country = 'United States' WHERE IATA = 'KKK'
 
+
+
 SELECT
     Country AS 'Land',
     COUNT(IATA) AS 'Antal flygplatser',
@@ -153,7 +163,5 @@ SELECT
 FROM AirportsCopy
 GROUP BY Country
 ORDER BY 'Antal flygplatser' DESC
-
-SET ANSI_WARNINGS ON
 
 --*/---------------------------------------------------------------------------------------------

@@ -1,18 +1,24 @@
 USE everyloop
 
+-- Uppgift från filen - Exercises\Join.md
+
+
+
+
+-- A - Company
 -- Med tabellerna från schema "company", svara på följande frågor:
 
 
 
 
--- Företagets totala produktkatalog består av 77 unika produkter.
--- Om vi kollar bland våra ordrar,
--- hur stor andel av dessa produkter har vi någon gång leverarat till London?
+-- 1. Företagets totala produktkatalog består av 77 unika produkter.
+--    Om vi kollar bland våra ordrar,
+--    hur stor andel av dessa produkter har vi någon gång leverarat till London?
 
 DECLARE @amountOfProducts FLOAT
 DECLARE @shippedToLondon FLOAT
 
-SELECT @amountOfProducts = count(Id) FROM company.products
+SELECT @amountOfProducts = COUNT(Id) FROM company.products
 
 SELECT @shippedToLondon = COUNT(DISTINCT ProductID)
 FROM company.orders o JOIN company.order_details od ON o.Id = od.OrderId
@@ -29,10 +35,24 @@ GROUP BY ShipCity
 HAVING o.ShipCity LIKE 'London'
 ORDER BY 'Unika produkter' DESC
 
+-- Samt en lösning på ovanstående uppgift utan DECLARE's/PRINT
+
+SELECT
+    FORMAT(
+        CAST(
+            (SELECT
+                COUNT(DISTINCT ProductId)
+            FROM company.orders o
+                JOIN company.order_details od
+                ON o.Id = od.OrderId
+            WHERE o.ShipCity LIKE 'London') AS FLOAT)
+        / COUNT(*), 'P2') AS 'Andel produkter skickade till London'
+FROM company.products p
 
 
 
--- Till vilken stad har vi levererat flest unika produkter?
+
+-- 2. Till vilken stad har vi levererat flest unika produkter?
 
 SET ROWCOUNT 1
 SELECT ShipCity AS 'Stad',
@@ -46,7 +66,9 @@ SET ROWCOUNT 0
 
 
 
--- Av de produkter som inte längre finns I vårat sortiment, hur mycket har vi sålt för totalt till Tyskland?
+-- 3. Av de produkter som inte längre finns I vårat sortiment, 
+--    hur mycket har vi sålt för totalt till Tyskland?
+
 SELECT
     ShipCountry AS 'Country',
     SUM(od.UnitPrice) * SUM(Quantity) AS 'Totally billed'
@@ -57,7 +79,7 @@ FROM
     JOIN company.products p
     ON p.Id = od.ProductId
 WHERE
-    ShipCountry = 'Germany' AND -- Remove/Comment out for all countries.
+    ShipCountry = 'Germany' AND -- Remove/Comment out for all other countries.
     Discontinued = 1
 GROUP BY ShipCountry
 ORDER BY 'Totally billed' DESC
@@ -65,7 +87,7 @@ ORDER BY 'Totally billed' DESC
 
 
 
--- För vilken produktkategori har vi högst lagervärde?
+-- 4. För vilken produktkategori har vi högst lagervärde?
 
 SELECT
     CategoryName,
@@ -78,7 +100,7 @@ GROUP BY CategoryName
 
 
 
--- Från vilken leverantör har vi sålt flest produkter totalt under sommaren 2013?
+-- 5. Från vilken leverantör har vi sålt flest produkter totalt under sommaren 2013?
 
 SELECT
     CompanyName,

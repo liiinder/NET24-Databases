@@ -1,22 +1,33 @@
 USE everyloop
 
+-- Uppgifter från filen - Exercises\CRUD.md
 
 
---/* Uppgift 1
 
--- Format är bara möjligt i T-SQL.
+
+-------------------------------------------------------------------------------------------------
+--/* Uppgift 1. Game of thrones
+-------------------------------------------------------------------------------------------------
+
 SELECT
     Title,
-    'S' + right('00' + cast(Season AS NVARCHAR), 2) +
-    'E' + right('00' + cast(EpisodeInSeason AS NVARCHAR), 2) AS Episode,
-    'S' + Format(Season, '00') + 'E' + Format(EpisodeInSeason, '00') AS Episode2
+-- Version med right (substring)
+    'S' + RIGHT('00' + CAST(Season AS NVARCHAR), 2) +
+    'E' + RIGHT('00' + CAST(EpisodeInSeason AS NVARCHAR), 2) AS Episode,
+-- Version med Format
+    'S' + FORMAT(Season, '00') + 'E' + FORMAT(EpisodeInSeason, '00') AS Episode2
 FROM GameOfThrones;
 
---*/------------------------------------------------------------------------------
 
 
 
---/* Uppgift 2
+--*/---------------------------------------------------------------------------------------------
+--/* Uppgift 2. Uppdatera användarnamn
+-------------------------------------------------------------------------------------------------
+
+IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'UsersCopy')
+   DROP TABLE [dbo].UsersCopy;
+GO
 
 SELECT * INTO UsersCopy FROM Users;
 SELECT * FROM UsersCopy;
@@ -25,52 +36,62 @@ UPDATE UsersCopy
 SET UserName = LOWER(LEFT(FirstName, 2) + LEFT(LastName, 2));
 
 SELECT * FROM UsersCopy;
-DROP TABLE UsersCopy;
-
---*/------------------------------------------------------------------------------
 
 
 
---/* Uppgift 3
+
+--*/---------------------------------------------------------------------------------------------
+--/* Uppgift 3. Uppdatera airports
+-------------------------------------------------------------------------------------------------
+
+IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'AirportsCopy')
+   DROP TABLE [dbo].AirportsCopy;
+GO
 
 SELECT * INTO AirportsCopy FROM Airports
 
 UPDATE AirportsCopy
-SET Time = '-' WHERE Time IS NULL 
+SET Time = '-' WHERE Time IS NULL
 
 UPDATE AirportsCopy
 SET DST = '-' WHERE DST IS NULL
 
 SELECT COUNT(Time) AS 'Count null in Time' FROM AirportsCopy WHERE Time IS NULL
 
-DROP TABLE AirportsCopy
-
---*/------------------------------------------------------------------------
 
 
 
---/* Uppgift 4
+--*/---------------------------------------------------------------------------------------------
+--/* Uppgift 4. Ta bort grundämnen
+-------------------------------------------------------------------------------------------------
+
+IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'ElementsCopy')
+   DROP TABLE [dbo].ElementsCopy;
+GO
 
 SELECT * INTO ElementsCopy FROM Elements
 
 DELETE FROM ElementsCopy
 WHERE
-    Name = 'Erbium' OR 
-    Name = 'Helium' OR 
-    Name = 'Nitrogen' OR 
-    Name = 'Platinum' OR 
+    Name = 'Erbium' OR
+    Name = 'Helium' OR
+    Name = 'Nitrogen' OR
+    Name = 'Platinum' OR
     Name = 'Selenium' OR
     Name LIKE '[dkmou]%'
 
 SELECT * FROM ElementsCopy ORDER BY NAME
 
-DROP TABLE ElementsCopy
-
---*/----------------------------------------------------------------------
 
 
 
---/* Uppgift 5
+--*/---------------------------------------------------------------------------------------------
+--/* Uppgift 5. Kolla om namnet börjar med bokstäverna i 'Symbol'
+-------------------------------------------------------------------------------------------------
+
+IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'ElementsCopy')
+   DROP TABLE [dbo].ElementsCopy;
+GO
 
 SELECT
     Symbol,
@@ -83,11 +104,17 @@ INTO ElementsCopy FROM Elements
 
 SELECT * FROM ElementsCopy ORDER BY NAME
 
-DROP TABLE ElementsCopy
 
---*/----------------------------------------------------------------------
 
---/* Uppgift 6
+
+
+--*/---------------------------------------------------------------------------------------------
+--/* 6. Beräkna värdet i 'Code' från RGB-värdena
+-------------------------------------------------------------------------------------------------
+
+IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'ColorsCopy')
+   DROP TABLE [dbo].ColorsCopy;
+GO
 
 SELECT * INTO ColorsCopy FROM Colors
 
@@ -102,7 +129,12 @@ FROM ColorsCopy
 
 DROP TABLE ColorsCopy
 
---*/----------------------------------------------------------------------
+
+
+
+--*/---------------------------------------------------------------------------------------------
+--/* Uppgift 7. Beräkna 'Float', 'DateTime' och 'Bool' kolumnerna
+-------------------------------------------------------------------------------------------------
 
 SELECT * FROM Types
 

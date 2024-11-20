@@ -1,19 +1,11 @@
 USE everyloop
 
-/*
-    https://github.com/liiinder/NET24-Databases/blob/master/Exercises/Join.md#b---playlist
+-- Uppgift från filen - Exercises\Join.md
 
-    DECLARE @playlist VARCHAR(120) = 'Heavy Metal Classic' -- (music.playlists Name)
 
-    Genre    Artist    Album    Track    Length    Size    Composer
-    ---------------------------------------------------------------
-    SELECT * FROM music.playlists       -- Name -> playlistID
-    SELECT * FROM music.playlist_track  -- playlist_track many to many column
-    SELECT * FROM music.tracks          -- tracks/playlist_tracks -> trackId
-    SELECT * FROM music.albums          -- track/albums -> AlbumId -> ArtistId
-    SELECT * FROM music.artists         -- album/artists -> ArtistId -> Name
-    SELECT * FROM music.genres          -- track/genres GenreId -> Name
-*/
+
+
+-- B - Playlist
 
 -- DECLARE @playlist VARCHAR(120) = 'Heavy Metal Classic'
 DECLARE @playlist VARCHAR(120) = '90’s Music'
@@ -40,3 +32,18 @@ FROM
     JOIN music.genres g
     ON t.GenreId = g.GenreId
 WHERE p.Name = @playlist
+
+/*
+    https://github.com/liiinder/NET24-Databases/blob/master/Exercises/Join.md#b---playlist
+
+    DECLARE @playlist VARCHAR(120) = 'Heavy Metal Classic' -- (music.playlists Name)
+
+    Genre    Artist    Album    Track    Length    Size    Composer
+    ---------------------------------------------------------------
+    SELECT * FROM music.playlists       -- Name -> playlistID
+    SELECT * FROM music.playlist_track  -- playlist_track many to many column
+    SELECT * FROM music.tracks          -- tracks/playlist_tracks -> trackId
+    SELECT * FROM music.albums          -- track/albums -> AlbumId -> ArtistId
+    SELECT * FROM music.artists         -- album/artists -> ArtistId -> Name
+    SELECT * FROM music.genres          -- track/genres GenreId -> Name
+*/
