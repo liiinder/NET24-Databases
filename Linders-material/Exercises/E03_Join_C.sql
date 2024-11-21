@@ -11,8 +11,8 @@ USE everyloop
 
 
 
--- Av alla audiospår, vilken artist har längst total speltid?
--- Vad är den genomsnittliga speltiden på den artistens låtar?
+-- 1. Av alla audiospår, vilken artist har längst total speltid?
+-- 2. Vad är den genomsnittliga speltiden på den artistens låtar?
 
 SELECT TOP 1
     ar.Name,
@@ -60,7 +60,7 @@ OFFSET is an option for ORDER BY - https://www.sqlservertutorial.net/sql-server-
 
 
 
--- Vad är den sammanlagda filstorleken för all video?
+-- 3. Vad är den sammanlagda filstorleken för all video?
 
 SELECT
     mt.Name as 'Mediatyp',
@@ -78,7 +78,7 @@ GROUP BY mt.Name
 
 
 
--- Vilket är det högsta antal artister som finns på en enskild spellista?
+-- 4. Vilket är det högsta antal artister som finns på en enskild spellista?
 
 SELECT
     pt.PlaylistId AS 'Id',
@@ -97,7 +97,7 @@ ORDER BY 'Unika artister' DESC
 
 
 
--- Vilket är det genomsnittliga antalet artister per spellista?
+-- 5. Vilket är det genomsnittliga antalet artister per spellista?
 
 DECLARE @sumOfUniqueArtists FLOAT = 0
 DECLARE @sumOfPlaylists FLOAT = 0
@@ -105,15 +105,15 @@ DECLARE @sumOfPlaylists FLOAT = 0
 SELECT
     @sumOfPlaylists += COUNT(DISTINCT p.PlaylistId),
     @sumOfUniqueArtists += COUNT(DISTINCT al.ArtistId)
-FROM music.playlist_track pt
-    JOIN music.tracks t
-    ON pt.TrackId = t.TrackId
-    JOIN music.albums al
-    ON t.AlbumId = al.AlbumId
-    JOIN music.playlists p
+FROM music.playlists p
+    LEFT JOIN music.playlist_track pt
     ON pt.PlaylistId = p.PlaylistId
+    LEFT JOIN music.tracks t
+    ON pt.TrackId = t.TrackId
+    LEFT JOIN music.albums al
+    ON t.AlbumId = al.AlbumId
 GROUP BY p.PlaylistId
 
 PRINT 'Genomsnittliga antalet unika artister per spellista: ' + CAST(@sumOfUniqueArtists / @sumOfPlaylists AS NVARCHAR(max))
 
-SELECT CAST(@sumOfUniqueArtists / @sumOfPlaylists AS NVARCHAR(max)) AS 'Genomsnittliga antalet unika artister per spellista'
+SELECT CAST(FORMAT(@sumOfUniqueArtists / @sumOfPlaylists, 'F2') AS NVARCHAR(max)) AS 'Genomsnittliga antalet unika artister per spellista'

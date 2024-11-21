@@ -49,6 +49,20 @@ SELECT
         / COUNT(*), 'P2') AS 'Andel produkter skickade till London'
 FROM company.products p
 
+-- En till men med den kortare queryn som subquery vilket gör den mer lättläst
+
+SELECT
+    FORMAT(
+        CAST(COUNT(DISTINCT ProductId) AS FLOAT) /
+        (SELECT
+            COUNT(*) 
+        FROM company.products
+    ), 'P') AS 'Andel produkter skickade till London'
+FROM company.orders o
+    JOIN company.order_details od
+    ON o.Id = od.OrderId
+WHERE o.ShipCity LIKE 'London'
+
 
 
 
