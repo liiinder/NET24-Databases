@@ -16,7 +16,7 @@ SELECT
     'E' + RIGHT('00' + CAST(EpisodeInSeason AS NVARCHAR), 2) AS Episode,
 -- Version med Format
     'S' + FORMAT(Season, '00') + 'E' + FORMAT(EpisodeInSeason, '00') AS Episode2
-FROM GameOfThrones;
+FROM GameOfThrones
 
 
 
@@ -25,17 +25,15 @@ FROM GameOfThrones;
 --/* Uppgift 2. Uppdatera användarnamn
 -------------------------------------------------------------------------------------------------
 
-IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'UsersCopy')
-   DROP TABLE [dbo].UsersCopy;
-GO
+DROP TABLE IF EXISTS UsersCopy
 
-SELECT * INTO UsersCopy FROM Users;
-SELECT * FROM UsersCopy;
+SELECT * INTO UsersCopy FROM Users
+SELECT * FROM UsersCopy
 
 UPDATE UsersCopy
-SET UserName = LOWER(LEFT(FirstName, 2) + LEFT(LastName, 2));
+SET UserName = LOWER(LEFT(FirstName, 2) + LEFT(LastName, 2))
 
-SELECT * FROM UsersCopy;
+SELECT * FROM UsersCopy
 
 
 
@@ -44,9 +42,7 @@ SELECT * FROM UsersCopy;
 --/* Uppgift 3. Uppdatera airports
 -------------------------------------------------------------------------------------------------
 
-IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'AirportsCopy')
-   DROP TABLE [dbo].AirportsCopy;
-GO
+DROP TABLE IF EXISTS AirportsCopy
 
 SELECT * INTO AirportsCopy FROM Airports
 
@@ -65,9 +61,7 @@ SELECT COUNT(Time) AS 'Count null in Time' FROM AirportsCopy WHERE Time IS NULL
 --/* Uppgift 4. Ta bort grundämnen
 -------------------------------------------------------------------------------------------------
 
-IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'ElementsCopy')
-   DROP TABLE [dbo].ElementsCopy;
-GO
+DROP TABLE IF EXISTS ElementsCopy
 
 SELECT * INTO ElementsCopy FROM Elements
 
@@ -89,9 +83,7 @@ SELECT * FROM ElementsCopy ORDER BY NAME
 --/* Uppgift 5. Kolla om namnet börjar med bokstäverna i 'Symbol'
 -------------------------------------------------------------------------------------------------
 
-IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'ElementsCopy')
-   DROP TABLE [dbo].ElementsCopy;
-GO
+DROP TABLE IF EXISTS ElementsCopy
 
 SELECT
     Symbol,
@@ -107,14 +99,11 @@ SELECT * FROM ElementsCopy ORDER BY NAME
 
 
 
-
 --*/---------------------------------------------------------------------------------------------
 --/* 6. Beräkna värdet i 'Code' från RGB-värdena
 -------------------------------------------------------------------------------------------------
 
-IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'ColorsCopy')
-   DROP TABLE [dbo].ColorsCopy;
-GO
+DROP TABLE IF EXISTS ColorsCopy
 
 SELECT * INTO ColorsCopy FROM Colors
 

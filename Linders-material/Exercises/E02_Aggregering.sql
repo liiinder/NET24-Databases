@@ -119,13 +119,11 @@ GROUP BY Region
 --/* Uppgift 6. Gruppera per land
 -------------------------------------------------------------------------------------------------
 
-IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name LIKE 'AirportsCopy')
-   DROP TABLE [dbo].AirportsCopy;
-GO
+DROP TABLE IF EXISTS AirportsCopy
 
 SELECT * INTO AirportsCopy FROM Airports
 
-ALTER TABLE AirportsCopy ADD Country NVARCHAR(max) GO
+ALTER TABLE AirportsCopy ADD Country NVARCHAR(max)
 
 -- Set Country to [Location served] but deletes all numbers
 UPDATE AirportsCopy SET Country = REPLACE(TRANSLATE([Location served], '1234567890', '??????????'), '?', '')
