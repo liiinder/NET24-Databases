@@ -58,9 +58,18 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\tables" />
+    <Folder Include="PublishLocations" />
+    <Folder Include="dbo\views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\tables\Cities.sql" />
     <Build Include="dbo\tables\Countries.sql" />
+    <Build Include="dbo\views\CityView.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PublishLocations\VisualStudioDemoProject.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="L003_DatabaseProjectDemo.refactorlog" />
   </ItemGroup>
 </Project>
