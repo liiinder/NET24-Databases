@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L002_SQL-injection_demo", "
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "L003_DatabaseProjectDemo", "Code-along\L003_DatabaseProjectDemo\L003_DatabaseProjectDemo.sqlproj", "{27931506-CC38-4664-8BB2-FFE84231E94D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L004_Intro_EFcore", "Code-along\L004_Intro_EFcore\L004_Intro_EFcore.csproj", "{C4E23035-AAE9-449D-B98F-035752D69B97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{27931506-CC38-4664-8BB2-FFE84231E94D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27931506-CC38-4664-8BB2-FFE84231E94D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{27931506-CC38-4664-8BB2-FFE84231E94D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C4E23035-AAE9-449D-B98F-035752D69B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4E23035-AAE9-449D-B98F-035752D69B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4E23035-AAE9-449D-B98F-035752D69B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4E23035-AAE9-449D-B98F-035752D69B97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
