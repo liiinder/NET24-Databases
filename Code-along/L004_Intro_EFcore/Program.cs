@@ -5,18 +5,18 @@ using Microsoft.EntityFrameworkCore;
 //EnsureDatabaseIsDeleted();
 //EnsureDatabaseIsCreated();
 
-CreateBlog("yetanotherblog.com", 2);
+//CreateBlog("myotherblog.com", 3);
 
 var myBlogs = GetBlogs(printSQL: true);
 
 foreach (var blog in myBlogs)
 {
-    Console.WriteLine($"{blog.Url}, rating: {blog.Rating}");
+    Console.WriteLine($"{blog.Url}, rating: {blog.RatingRenamed}");
 }
 
 static void CreateBlog(string url, int rating = 5)
 {
-    var blog = new Blog() { Url = url, Rating = rating };
+    var blog = new Blog() { Url = url, RatingRenamed = rating };
 
     using var db = new BloggingContext();
 
@@ -29,7 +29,7 @@ static List<Blog> GetBlogs(string searchString = "", bool printSQL = false)
 {
     using var db = new BloggingContext();
 
-    var query = db.Blogs.Where(b => b.Url.Contains(searchString)).OrderByDescending(b => b.Rating).ThenBy(b => b.Url);
+    var query = db.Blogs.Where(b => b.Url.Contains(searchString)).OrderByDescending(b => b.RatingRenamed).ThenBy(b => b.Url);
     
     if (printSQL)
     {
