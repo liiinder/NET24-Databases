@@ -2,7 +2,7 @@
 -- ”period”, ”from” med lägsta atomnumret i perioden, ”to” med högsta atomnumret i perioden, 
 -- ”average isotopes” med genomsnittligt antal isotoper visat med 2 decimaler, ”symbols” med 
 -- en kommaseparerad lista av alla ämnen i perioden.
-
+/*
 select 
 	Period,
 	min(Number) as 'From',
@@ -34,3 +34,43 @@ from
 	Countries
 group by
 	Region
+
+*/
+
+-- Från tabellen ”Airports”, gruppera per land och ta ut kolumner som visar: land, antal flygplatser (IATA-koder), 
+-- antal som saknar ICAO-kod, samt hur många procent av flygplatserna i varje land som saknar ICAO-kod.
+
+-- Clean up data to new table:
+select
+	--[Location served],
+	--reverse([Location served]),
+	--charindex(',', reverse([Location served])),
+	--right([Location served], charindex(',', reverse([Location served]))),
+	*,
+	trim(concat(char(32), char(160), ',') from right([Location served], charindex(',', reverse([Location served])))) as 'Country'
+into
+	AirportsWithCountryColumn
+from 
+	Airports;
+
+
+select 
+	Country,
+	count(IATA) as 'Number of airports',
+	--count(ICAO) as 'Number of airports with ICAO',
+	count(*) - count(ICAO) as 'Number of airports without ICAO',
+	format((count(*) - count(ICAO)) / cast(count(IATA) as float), 'p') as 'Percentage of airports without ICAO'
+from 
+	AirportsWithCountryColumn
+group by
+	Country
+order by
+	(count(*) - count(ICAO)) / cast(count(IATA) as float)
+
+
+
+--SELECT * FROM Airports WHERE IATA IN ('HLE', 'KKK')
+
+
+ 
+
