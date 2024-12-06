@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L006_ModelConfiguration", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L007_Relationships", "Code-along\L007_Relationships\L007_Relationships.csproj", "{51FC2987-3C92-4ECF-893B-0B61E64CF858}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L008_DataGrid_and_TreeView", "Code-along\L008_DataGrid_and_TreeView\L008_DataGrid_and_TreeView.csproj", "{27EA1866-FAD2-4ECC-AB29-FAE1D67B0EE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{51FC2987-3C92-4ECF-893B-0B61E64CF858}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51FC2987-3C92-4ECF-893B-0B61E64CF858}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51FC2987-3C92-4ECF-893B-0B61E64CF858}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27EA1866-FAD2-4ECC-AB29-FAE1D67B0EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27EA1866-FAD2-4ECC-AB29-FAE1D67B0EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27EA1866-FAD2-4ECC-AB29-FAE1D67B0EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27EA1866-FAD2-4ECC-AB29-FAE1D67B0EE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
