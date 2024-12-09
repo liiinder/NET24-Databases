@@ -11,7 +11,7 @@ Entity Framework Core är ett ramverk som gör att man slipper skriva SQL-komman
 
 ## DbContext
 
-En klass som representerar kopplingen till en databas, och som kommunikationen med database sker genom. Detta kallas en databas-kontext.
+En klass som representerar kopplingen till en databas, och som kommunikationen med databasen sker genom. Detta kallas en databas-kontext.
 
 Man skapar en egen databaskontext, med egna inställningar, genom att skapa en klass som ärver från DbContext.
 

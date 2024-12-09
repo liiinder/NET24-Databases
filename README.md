@@ -6,17 +6,19 @@ Här hittar du code-along projekt från lektioner, lektionsanteckningar, samt [�
 
 **Anteckningar:**
 
-| Datum           | Översikt                                                       |
-|-----------------|----------------------------------------------------------------|
-| [Nov 11][Nov11] | SQL Server & Management Studio, SQL intro, CRUD, DDL           |
-| [Nov 13][Nov13] | Aggregering, Gruppering, Datatyper, Variabler                  |
-| [Nov 14][Nov14] | Joins                                                          |
-| [Nov 18][Nov18] | ACID, Transaktioner, SqlClient, SQL-injection                  |
-| [Nov 20][Nov20] | Constraints, Normalisering                                     |
-| [Nov 21][Nov21] | Set-Based programming, Subqueries, Vyer, Stored Procedures     |
-| [Nov 25][Nov25] | Användare, Rättigheter, Index                                  |
-| [Nov 27][Nov27] | SqlCmd, SQL Server Agent, SQL Server Object Explorer           |
-| [Dec 2][Dec2]   | Entity Framework Core, DbContext, CRUD, Migrations             |
+| Datum           | Översikt                                                             |
+|-----------------|----------------------------------------------------------------------|
+| [Nov 11][Nov11] | SQL Server & Management Studio, SQL intro, CRUD, DDL                 |
+| [Nov 13][Nov13] | Aggregering, Gruppering, Datatyper, Variabler                        |
+| [Nov 14][Nov14] | Joins                                                                |
+| [Nov 18][Nov18] | ACID, Transaktioner, SqlClient, SQL-injection                        |
+| [Nov 20][Nov20] | Constraints, Normalisering                                           |
+| [Nov 21][Nov21] | Set-Based programming, Subqueries, Vyer, Stored Procedures           |
+| [Nov 25][Nov25] | Användare, Rättigheter, Index                                        |
+| [Nov 27][Nov27] | SqlCmd, SQL Server Agent, SQL Server Object Explorer                 |
+| [Dec 2][Dec2]   | Entity Framework Core, DbContext, CRUD, Migrations                   |
+| [Dec 4][Dec4]   | Conventions, Data Annotations, Fluent-API, Eager vs Explicit loading |
+| [Dec 5][Dec5]   | WPF: DataGrid & TreeView                                             |
 
 [Nov11]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov11.md
 [Nov13]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov13.md
@@ -27,3 +29,5 @@ Här hittar du code-along projekt från lektioner, lektionsanteckningar, samt [�
 [Nov25]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov25.md
 [Nov27]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov27.md
 [Dec2]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec2.md
+[Dec4]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec4.md
+[Dec5]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec5.md
