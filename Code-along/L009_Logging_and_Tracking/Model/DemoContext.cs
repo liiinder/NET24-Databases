@@ -28,7 +28,8 @@ internal class DemoContext : DbContext
                 new[] { DbLoggerCategory.Database.Command.Name },
                 LogLevel.Information,
                 DbContextLoggerOptions.Level | DbContextLoggerOptions.LocalTime
-            );
+            )
+            .EnableSensitiveDataLogging();
     }
 
     private void MyLogger(string message)
