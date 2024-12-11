@@ -8,6 +8,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CompanyDemo.Infrastructure.Data.Model;
+using CompanyDemo.Presentation.ViewModels;
 
 namespace CompanyDemo.Presentation
 {
@@ -19,6 +21,8 @@ namespace CompanyDemo.Presentation
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new MainWindowViewModel();
         }
     }
 }
