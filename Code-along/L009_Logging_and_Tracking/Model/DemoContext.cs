@@ -28,7 +28,8 @@ internal class DemoContext : DbContext
                 new[] { DbLoggerCategory.Database.Command.Name },
                 LogLevel.Information,
                 DbContextLoggerOptions.Level | DbContextLoggerOptions.LocalTime
-            );
+            )
+            .EnableSensitiveDataLogging();
     }
 
     private void MyLogger(string message)
@@ -49,4 +50,70 @@ internal class DemoContext : DbContext
         Console.ResetColor();
         Console.WriteLine();
     }
+
+    public void PrintChangeTrackerDebugInfo(string? caption = null, bool autoDetectChanges = true)
+    {
+        if (caption is not null)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(caption);
+            Console.ResetColor();
+        }
+
+        if (autoDetectChanges)
+        {
+            this.ChangeTracker.DetectChanges();
+        }
+
+        var debugInfo = this.ChangeTracker.DebugView.LongView;
+
+        var lines = debugInfo.Split("\n");
+
+        foreach (var line in lines)
+        {
+            var status = line.Trim('\r');
+            if (status.EndsWith("Deleted"))
+            {
+                Console.Write(status[..^7]);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Deleted");
+                Console.ResetColor();
+            }
+            else if (status.EndsWith("Modified"))
+            {
+                Console.Write(status[..^8]);
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Modified");
+                Console.ResetColor();
+            }
+            else if (status.EndsWith("Unchanged"))
+            {
+                Console.Write(status[..^9]);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Unchanged");
+                Console.ResetColor();
+            }
+            else if (status.Contains("Modified Originally"))
+            {
+                var stringStart = status.Split("Modified Originally").First();
+                var newValue = stringStart.Trim().Split(" ").Last();
+                var oldValue = status.Split("Modified Originally").Last();
+                var indexOfNewValue = stringStart.IndexOf(newValue);
+
+                Console.Write(stringStart[..indexOfNewValue]);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write(newValue);
+                Console.ResetColor();
+                Console.Write(" Modified Originally");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(oldValue);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.WriteLine(status);
+            }
+        }
+    }
+
 }
