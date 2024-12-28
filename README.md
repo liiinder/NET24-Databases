@@ -19,6 +19,10 @@ Här hittar du code-along projekt från lektioner, lektionsanteckningar, samt [�
 | [Dec 2][Dec2]   | Entity Framework Core, DbContext, CRUD, Migrations                   |
 | [Dec 4][Dec4]   | Conventions, Data Annotations, Fluent-API, Eager vs Explicit loading |
 | [Dec 5][Dec5]   | WPF: DataGrid & TreeView                                             |
+| [Dec 9][Dec9]   | Logging och Change Tracking i EF Core                                |
+| [Dec 11][Dec11] | Demoprojekt "CompanyDemo" i EF Core                                  |
+| [Dec 12][Dec11] | Fortsättning "CompanyDemo code-along                                 |
+| [Dec 19][Dec519 | SQLite intro, och SQLite EF Core demo                                |
 
 [Nov11]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov11.md
 [Nov13]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov13.md
@@ -31,3 +35,6 @@ Här hittar du code-along projekt från lektioner, lektionsanteckningar, samt [�
 [Dec2]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec2.md
 [Dec4]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec4.md
 [Dec5]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec5.md
+[Dec9]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec9.md
+[Dec11]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec11.md
+[Dec19]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec19.md
