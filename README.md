@@ -22,7 +22,7 @@ Här hittar du code-along projekt från lektioner, lektionsanteckningar, samt [�
 | [Dec 9][Dec9]   | Logging och Change Tracking i EF Core                                |
 | [Dec 11][Dec11] | Demoprojekt "CompanyDemo" i EF Core                                  |
 | [Dec 12][Dec11] | Fortsättning "CompanyDemo code-along                                 |
-| [Dec 19][Dec519 | SQLite intro, och SQLite EF Core demo                                |
+| [Dec 19][Dec19] | SQLite intro, och SQLite EF Core demo                                |
 
 [Nov11]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov11.md
 [Nov13]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov13.md
