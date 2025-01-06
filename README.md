@@ -39,4 +39,4 @@ Här hittar du code-along projekt från lektioner, lektionsanteckningar, samt [�
 [Dec9]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec9.md
 [Dec11]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec11.md
 [Dec19]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec19.md
-[Dec7]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Jan7.md
+[Jan7]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Jan7.md
