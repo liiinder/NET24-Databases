@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L011_MongoDB_EFcore", "Code
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L012_MovieDB", "Code-along\L012_MovieDB\L012_MovieDB.csproj", "{1C7E90B2-B496-46BB-851C-D0714565030F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L013_RepositoryPattern", "Code-along\L013_RepositoryPattern\L013_RepositoryPattern.csproj", "{F37530A4-78BB-4741-B041-6DDD19DD0689}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{1C7E90B2-B496-46BB-851C-D0714565030F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C7E90B2-B496-46BB-851C-D0714565030F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C7E90B2-B496-46BB-851C-D0714565030F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F37530A4-78BB-4741-B041-6DDD19DD0689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F37530A4-78BB-4741-B041-6DDD19DD0689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F37530A4-78BB-4741-B041-6DDD19DD0689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F37530A4-78BB-4741-B041-6DDD19DD0689}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
