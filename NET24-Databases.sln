@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L010_Sqlite", "Code-along\L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L011_MongoDB_EFcore", "Code-along\L011_MongoDB_EFcore\L011_MongoDB_EFcore.csproj", "{C7D123EC-3042-4E2A-A0AE-3B70DFB401B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L012_MovieDB", "Code-along\L012_MovieDB\L012_MovieDB.csproj", "{1C7E90B2-B496-46BB-851C-D0714565030F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{C7D123EC-3042-4E2A-A0AE-3B70DFB401B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7D123EC-3042-4E2A-A0AE-3B70DFB401B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7D123EC-3042-4E2A-A0AE-3B70DFB401B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C7E90B2-B496-46BB-851C-D0714565030F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C7E90B2-B496-46BB-851C-D0714565030F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C7E90B2-B496-46BB-851C-D0714565030F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C7E90B2-B496-46BB-851C-D0714565030F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
