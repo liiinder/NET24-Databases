@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace L011_MongoDB_EFcore.Models;
+namespace L013_RepositoryPattern.Models;
 
 class IMDB
 {

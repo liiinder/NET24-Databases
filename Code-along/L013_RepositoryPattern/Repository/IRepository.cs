@@ -8,9 +8,9 @@ namespace L013_RepositoryPattern.Repository
 {
     internal interface IRepository<TEntity> where TEntity : class 
     {
-        TEntity Get(int id);
+        TEntity? Get(int id);
 
-        TEntity Get(string id);
+        TEntity? Get(string id);
 
         IEnumerable<TEntity> GetAll();
 

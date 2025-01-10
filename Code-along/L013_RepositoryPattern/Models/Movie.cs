@@ -1,9 +1,11 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.EntityFrameworkCore;
+using System.Diagnostics;
 
-namespace L011_MongoDB_EFcore.Models;
+namespace L013_RepositoryPattern.Models;
 
+[DebuggerDisplay("{Title, nq} ({Year})")]
 [Collection("movies")]
 class Movie()
 {

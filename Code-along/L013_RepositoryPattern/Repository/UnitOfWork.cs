@@ -1,23 +1,22 @@
-﻿using L011_MongoDB_EFcore.Models;
-using L013_RepositoryPattern.Repository;
+﻿using L013_RepositoryPattern.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace L013_RepositoryPattern.Models
+namespace L013_RepositoryPattern.Repository
 {
     internal class UnitOfWork : IUnitOfWork
     {
-        private readonly MongoDbContext context;
-        public UnitOfWork(MongoDbContext context)
+        private readonly MovieContext context;
+        public UnitOfWork(MovieContext context)
         {
             this.context = context;
-            Movies = new Repository<Movie>(context);
+            Movies = new MovieRepository(context);
         }
 
-        public IRepository<Movie> Movies { get; private set; }
+        public IMovieRepository Movies { get; private set; }
 
         public int Commit()
         {

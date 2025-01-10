@@ -30,12 +30,12 @@ namespace L013_RepositoryPattern.Repository
             return context.Set<TEntity>().Where(predicate);
         }
 
-        public TEntity Get(int id)
+        public virtual TEntity? Get(int id)
         {
             return context.Set<TEntity>().Find(id);
         }
 
-        public TEntity Get(string id)
+        public virtual TEntity? Get(string id)
         {
             return context.Set<TEntity>().Find(id);
         }

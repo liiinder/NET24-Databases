@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace L011_MongoDB_EFcore.Models;
+namespace L013_RepositoryPattern.Models;
 
-internal class MongoDbContext : DbContext
+internal class MovieContext : DbContext
 {
     public DbSet<Movie> Movies { get; set; }
 
@@ -17,5 +17,5 @@ internal class MongoDbContext : DbContext
         var collection = "sample_mflix";
 
         optionsBuilder.UseMongoDB(connectionString, collection);
-    }    
+    }
 }
