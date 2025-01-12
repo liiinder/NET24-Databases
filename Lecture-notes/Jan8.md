@@ -12,7 +12,7 @@ Det finns även ett antal operationer som kan utföras på en cursor, till exemp
 Dessa metoder hittar du [här!](https://www.mongodb.com/docs/manual/reference/method/js-cursor/)
 
 **Code-along:**  
-[004_Cursor_Methods..js](https://github.com/everyloop/NET24-Databases/blob/master/MongoDB/004_Cursor_Methods.js)  
+[004_Cursor_Methods.js](https://github.com/everyloop/NET24-Databases/blob/master/MongoDB/004_Cursor_Methods.js)  
 
 ## Aggregation Pipeline
 
@@ -27,7 +27,7 @@ Det finns även en stor uppsättning operatorer som används ihop med de olika a
 Du hittar aggregeringsoperatorerna [här!](https://www.mongodb.com/docs/manual/reference/operator/aggregation/)
 
 **Code-along:**  
-[005_Aggregation_Pipelines..js](https://github.com/everyloop/NET24-Databases/blob/master/MongoDB/005_Aggregation_Pipelines.js)  
+[005_Aggregation_Pipelines.js](https://github.com/everyloop/NET24-Databases/blob/master/MongoDB/005_Aggregation_Pipelines.js)  
 
 ## Views
 
@@ -38,4 +38,4 @@ I övrigt är idén samma; den fungerar som en "collection", men har ingen egen 
 En view skapas med kommandot: [db.createView()](https://www.mongodb.com/docs/manual/reference/method/db.createView/#mongodb-method-db.createView)
 
 **Code-along:**  
-[005_Aggregation_Pipelines..js](https://github.com/everyloop/NET24-Databases/blob/master/MongoDB/005_Aggregation_Pipelines.js)  
+[005_Aggregation_Pipelines.js](https://github.com/everyloop/NET24-Databases/blob/master/MongoDB/005_Aggregation_Pipelines.js)  
