@@ -25,6 +25,7 @@ Här hittar du code-along projekt från lektioner, lektionsanteckningar, samt [�
 | [Dec 19][Dec19] | SQLite intro, och SQLite EF Core demo                                |
 | [Jan 7][Jan7]   | Introduktion till NoSQL, MongoDB shell, Compass, CRUD.               |
 | [Jan 8][Jan8]   | MongoDB Atlas. Aggregation Pipelines. Views                          |
+| [Jan 9][Jan9]   | MongoDB, EFcore och Repository Pattern                               |
 
 [Nov11]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov11.md
 [Nov13]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Nov13.md
@@ -42,3 +43,4 @@ Här hittar du code-along projekt från lektioner, lektionsanteckningar, samt [�
 [Dec19]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Dec19.md
 [Jan7]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Jan7.md
 [Jan8]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Jan8.md
+[Jan9]: https://github.com/everyloop/NET24-Databases/blob/master/Lecture-notes/Jan9.md
