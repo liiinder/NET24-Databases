@@ -86,27 +86,26 @@ db.movies.aggregate([
 // Skapa en vy (view) med namn satisfaction som visar genomsnittlig satisfaction per gender och purchaseMethod.
 
 use("sample_supplies");
+db.satisfaction.drop();
 db.createView(
     "satisfaction",
     "sales",
     [
         {
-            $project:
-            {
-                _id: false,
-                gender: "$customer.gender",
-                satisfaction: "$customer.satisfaction",
-                purchaseMethod: true
-            }
-        },
-        {
             $group:
             {
                 _id: {
-                    gender: "$gender",
+                    gender: "$customer.gender",
                     purchaseMethod: "$purchaseMethod"
                 },
-                avgsatisfaction: { $avg: "$satisfaction" }
+                avgsatisfaction: { $avg: "$customer.satisfaction" }
+            }
+        },
+        {
+            $project:
+            {
+                _id: { $concat: ["$_id.gender", ": ", "$_id.purchaseMethod"]},
+                avgsatisfaction: { $round: ["$avgsatisfaction", 2]}
             }
         },
         { $sort: { avgsatisfaction : -1 } }
